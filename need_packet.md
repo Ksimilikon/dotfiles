@@ -1,4 +1,5 @@
 # general
+
 wayland
 pipewire, pipewire-alsa, pipewire-pulse
 NetworkManager
@@ -7,17 +8,25 @@ waybar
 btop, radeontop
 zsh (set like Default)
 rustup, rust, cargo
-## file manager 
-yazi 
-thunar 
-## editor 
+
+## file manager
+
+yazi
+thunar
+
+## editor
+
 nvim, vim
-## browser 
+
+## browser
+
 firefox
 zen (AUR)
 
-## other 
+## other
+
 wireguard-tools
+happ-desktop (AUR)
 yay (AUR)
 zellij
 telegram-desktop
@@ -27,19 +36,25 @@ zerotier-one (optional)
 proton-plus (optional)
 obsidian
 
-# laptop 
+# laptop
+
 niri
 fuzzel
+swaybg
+
 # pc
+
 hyprland, hyprpaper
 hypridle
 hyprlock (optional)
 wofi
 
-# pacman 
+# pacman
+
 mirrorlist
 multilib (unlock)
 
 # other
+
 set dark theme for QT und GNOME
 Set base settings git (MAIN BRANCH=main, email, nick)
