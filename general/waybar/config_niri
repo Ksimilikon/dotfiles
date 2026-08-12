@@ -1,0 +1,79 @@
+{
+  "layer": "bottom",         // Положение: поверх окон (top) или под ними (bottom)
+  "position": "top",      // Расположение (top, bottom, left, right)
+  "height": 30,           // Высота панели
+  "spacing": 5,           // Отступы между модулями
+  "modules-left": [custom/music"],  // Модули слева
+  "modules-right": ["pulseaudio", "network", "battery", "memory", "temperature", "clock"],  // Модули справа
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "tooltip": true,
+    "format-muted": "󰖁   {format_source}",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/music": {
+    "format": "{}",
+    "exec": "playerctl metadata --format '||| {{artist}} - {{title}}' 2>/dev/null || echo ''",
+    "interval": 2,  // Обновление каждые 2 секунды
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+  "cffi/niri-taskbar": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "active": " "
+    },
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": 3
+    }
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%d.%m.%Y}",
+    "tooltip-format": "{:%A, %d %B %Y | %H:%M}",
+  },
+  "network": {
+    "tooltip": true,
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{cidr}  ",
+    "format-disconnected": "  X",
+    "on-click": "iwgtk"
+  },
+  "battery": {
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": " {capacity}%",
+    "format-charging": "{capacity}%",
+    "format-alt": "{time} ({capacity}%)",
+    "tooltip": false
+  },
+  "memory": {
+    "interval": 5,  // Обновлять каждые 5 секунд
+    "format": "{used:0.1f}GiB",  
+    "tooltip": true, 
+  },
+  "temperature": {
+    "thermal-zone": 0,       // Номер зоны (обычно 0 для CPU)
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",  // Альтернативный путь
+    "critical-threshold": 90, // Температура для тревоги
+    "format": " {temperatureC}°C",
+    "format-critical": "🔥 {temperatureC}°C",
+    "interval": 5
+  }
+}
+

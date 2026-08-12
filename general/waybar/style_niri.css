@@ -1,0 +1,91 @@
+@define-color background rgba(30, 0, 20, 0.8);
+@define-color container-bg rgba(143, 19, 122, 0.4);
+@define-color text #ffffff;
+@define-color text2 #ff80ab;
+@define-color accent #db0db9;
+@define-color accentDark rgba(89, 10, 76, 0.3);
+@define-color warning #ffb74d;
+@define-color critical #f44336;
+
+* {
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @text;
+}
+
+/* Общий стиль для всех модулей */
+.modules-left,
+.modules-right {
+    background-color: @container-bg;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin: 3px 0;
+}
+
+/* Стили отдельных модулей */
+#niri-taskbar {
+    padding: 0 2px;
+    margin: 0;
+}
+
+#niri-taskbar button {
+    color: @text;
+    padding: 0 1px;
+}
+
+#niri-taskbar button.active {
+    color: @accent;
+}
+#custom-music {
+    color: #ff80ab; 
+    margin: 0 4px;
+}
+#custom-music.paused {
+  color: @text;  
+  opacity: 0.1;
+}
+
+#pulseaudio,
+#network,
+#battery,
+#memory,
+#temperature,
+#clock {
+  color: @text2;
+    padding: 0 8px;
+    margin: 0 2px;
+}
+
+#battery.warning {
+    color: @warning;
+}
+
+#battery.critical {
+    color: @critical;
+    animation: blink 1s infinite;
+}
+
+#clock{
+  color: @text;
+}
+#memory.warning {
+    color: @warning;
+}
+
+#memory.critical {
+    color: @critical;
+}
+
+#temperature.critical {
+    color: @critical;
+}
+
+
+/* Анимация для критических состояний */
+@keyframes blink {
+    50% { opacity: 0.5; }
+}
