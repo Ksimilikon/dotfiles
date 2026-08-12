@@ -256,7 +256,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "/home/ksi/.config/hypr/kath.jpg"
+spawn-at-startup "swaybg" "-i" "/home/ksi/.config/hypr/img/eva_ascii.png" "-m" "fill" //fill stretch center tile
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -341,7 +341,8 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
-
+    
+    Mod+E         hotkey-overlay-title="Open filemanager thunar" {spawn "thunar";}
     Mod+Shift+T   { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/screen.png"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.

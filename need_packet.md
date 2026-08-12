@@ -8,6 +8,8 @@ waybar
 btop, radeontop
 zsh (set like Default)
 rustup, rust, cargo
+slurp,  grim
+wl-copy, wl-paste
 
 ## file manager
 
